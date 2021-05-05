@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Space+Mono');
-
 * {
     box-sizing: border-box;
 }
-
 body {
     background-color: rgb(235, 231, 231);
     font-family:'Space Mono';
     margin: auto;
 }
-
 #titulo {
-    font-size: 6vh;
+    font-size: 30px;
     text-align: center;
     margin: auto;
 }
@@ -35,7 +32,6 @@ body {
 .calc-button:active {
     background-color:#949496;
 }
-
 .calculator input   {
     font-family: 'Space Mono';
     padding: 5%;
