@@ -23,6 +23,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid #111;
     padding: 20px;
+    font-family: 'Space Mono';
     color: #EEE;
     border-radius: 5px;
     font-size: 22px;
@@ -46,6 +47,7 @@ body {
   }
 .calculator-buttons {
     padding: 15px;
+    font-family: 'Space Mono';
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 15px;
@@ -59,14 +61,17 @@ body {
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
+    font-family: 'Space Mono';
 }
 .is-clear:active {
     background-color:#037ecf;
 }
-.is-zero {
+.is-zero {  
+    font-family: 'Space Mono';
     grid-column: span 3;
     border: 1px solid #111;
     padding: 20px;
+    color: black;
     background-color: rgb(214, 214, 214);
     border-radius: 5px;
     font-size: 22px;
@@ -77,6 +82,7 @@ body {
 }
 .is-equals {
     background: #07461c;
+    font-family: 'Space Mono';
     color: white;
     border: 1px solid #111;
     padding: 20px;
