@@ -68,7 +68,7 @@ body {
 }
 .is-zero {  
     font-family: 'Space Mono';
-    grid-column: span 3;
+    grid-column: span 2;
     border: 1px solid #111;
     padding: 20px;
     color: black;

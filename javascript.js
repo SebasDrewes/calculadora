@@ -1,39 +1,63 @@
 let display = document.querySelector("#display");
 let clear = document.querySelector(".is-clear");
-let button = document.querySelectorAll(".calc-button");
+let numberButton= document.querySelectorAll(".number-button");
+let operatorButton= document.querySelectorAll(".operator-button");
+let resultado = document.querySelector(".is-equals");
+let punto = document.querySelector(".punto");
 let displayValue = "";
+let primerNumero = "";
+let primerFloat = 0;
+let segundoFloat = 0;
+let result = 0;
+let segundoNumero = "";
+let operador = "";
 
-window.onload = function () {
-for (var i = 0; i < button.length; i++) {
- button[i].onclick = function () {
+window.onload = numeros(), operadores();
+
+function numeros() {
+for (var i = 0; i < numberButton.length; i++) {
+    numberButton[i].onclick = function () {
      display.value = display.value + this.innerHTML;
+     if (operador === "") {
+         primerNumero = primerNumero + this.innerHTML; 
+     } else {
+         segundoNumero = segundoNumero + this.innerHTML;
+     }
      displayValue = display.value
-     return false;
 }}};
+
+function operadores() {
+    for (var i = 0; i < operatorButton.length; i++) {
+        operatorButton[i].onclick = function () {
+         display.value = display.value + this.innerHTML;
+         operador = operador + this.innerHTML; 
+         displayValue = display.value
+         punto.disabled = false;
+    }}};
 
 function add() {
     let sum = Array.from(arguments).reduce(function(a, b) {
         return a + b;
     })
-    console.log(sum);
+    result = sum;
 }
 function substract() {
     let rest = Array.from(arguments).reduce(function(a, b) {
         return a - b;
     })
-    console.log(rest);
+    result = rest
 }
 function multiply() {
     let multiple = Array.from(arguments).reduce(function(a, b) {
         return a * b;
     })
-    console.log(multiple);
+    result = multiple
 }
 function divide() {
     let divided = Array.from(arguments).reduce(function(a, b) {
         return a / b;
     })
-    console.log(divided);
+    result = divided
 }
 
 function operate(numbera, operator, numberb) {
@@ -41,15 +65,36 @@ function operate(numbera, operator, numberb) {
         add(numbera, numberb);
     } else if (operator === "-" ) {
         substract(numbera, numberb);
-    } else if (operator === "*") {
+    } else if (operator === "x") {
         multiply(numbera, numberb);
-    } else if (operator ===  "/") {
+    } else if (operator ===  "÷") {
         divide(numbera, numberb);
     }
 }
 
 clear.addEventListener('click', () => {
-    display.value = ""
-    displayValue = ""
+    display.value = "";
+    displayValue = "";
+    operador = "";
+    primerNumero = "";
+    segundoNumero = "";
+    punto.disabled = false;
 });
 
+resultado.addEventListener('click', () => {
+    primerFloat = parseFloat(primerNumero);
+    segundoFloat = parseFloat(segundoNumero);
+    operate(primerFloat, operador, segundoFloat);
+    display.value = result;
+    punto.disabled = false;
+});
+
+punto.onclick = function () {
+    display.value = display.value + this.innerHTML;
+    if (operador === "") {
+        primerNumero = primerNumero + this.innerHTML; 
+        } else {
+            segundoNumero = segundoNumero + this.innerHTML;
+        }
+    punto.disabled = true;
+}
