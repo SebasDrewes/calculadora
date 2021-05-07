@@ -8,7 +8,7 @@ body {
     margin: auto;
 }
 #titulo {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     margin: auto;
 }
@@ -17,7 +17,8 @@ body {
     max-width: 400px;
     border: 2px solid #111;
     border-radius: 5px;
-    background-color:rgb(187, 187, 187)
+    background-color:rgb(187, 187, 187);
+    box-shadow: 3px 2px 2px rgb(110, 110, 110);
 }
 .calc-button {
     background: rgba(0, 0, 0, 0.5);
@@ -33,11 +34,12 @@ body {
 .calc-button:active {
     background-color:#949496;
 }
-.calculator input   {
+#display   {
     font-family: 'Space Mono';
     padding: 5%;
     width: 95%;
-    border-bottom: 2px solid #111;
+    min-height: 17vh;
+    border: 2px solid #111;
     color: #333;
     margin: 10px;
     text-align: right;

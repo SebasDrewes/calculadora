@@ -1,3 +1,4 @@
+//definicion de elementos DOM
 let display = document.querySelector("#display");
 let clear = document.querySelector(".is-clear");
 let numberButton= document.querySelectorAll(".number-button");
@@ -5,6 +6,7 @@ let operatorButton= document.querySelectorAll(".operator-button");
 let resultado = document.querySelector(".is-equals");
 let punto = document.querySelector(".punto");
 let deleteador = document.querySelector(".delete");
+//definicion de variables globales
 let displayValue = "";
 let primerNumero = "";
 let primerFloat = 0;
@@ -12,64 +14,58 @@ let segundoFloat = 0;
 let result = "";
 let segundoNumero = "";
 let operador = "";
-
+//funciones a ejecutar al abrir pagina
 window.onload = numeros(), operadores();
 
-function nan() {
-    if (display.value[0] === "N") {
-        display.value = "error";//*--*-*//
-        punto.disabled = true;
-        resultado.disabled = true;
-        for (let i = 0; i < numberButton.length; i++) {
-            numberButton[i].disabled = true;
-     }   for (let i = 0; i < operatorButton.length; i++) {
-            operatorButton[i].disabled = true;
-     }}}
-
-
+//funcionalidad para botones numeros
 function numeros() {
 for (let i = 0; i < numberButton.length; i++) {
     numberButton[i].onclick = function () {
-     nan()
-     display.value = display.value + this.innerHTML;
-     if (operador === "") {
-         primerNumero = primerNumero + this.innerHTML; 
-     } else {
-         segundoNumero = segundoNumero + this.innerHTML;
-     }
-     displayValue = display.value
+    display.textContent  = display.textContent  + this.innerHTML;
+    if (operador === "") {
+        primerNumero = primerNumero + this.innerHTML; 
+    } else {
+        segundoNumero = segundoNumero + this.innerHTML;
+    }
+    displayValue = display.textContent
 }}};
-
+//funcionalidad para botones operadores
 function operadores() {
     for (let i = 0; i < operatorButton.length; i++) {
         operatorButton[i].onclick = function () {
-            nan()
             if (operador === "") {
-         display.value = display.value + this.innerHTML;
+         display.textContent = display.textContent + this.innerHTML;
          operador = operador + this.innerHTML; 
-         displayValue = display.value
+         displayValue = display.textContent
          punto.disabled = false;
             } else {
-            primerFloat = parseFloat(primerNumero);
-            segundoFloat = parseFloat(segundoNumero);
-            operate(primerFloat, operador, segundoFloat);
-            display.value = result;
-            primerNumero = result;
-            segundoNumero = "";
-            operador = "";
-            punto.disabled = false;
-            display.value = display.value + this.innerHTML;
-            operador = operador + this.innerHTML; 
-            displayValue = display.value
-            }
-            ;
+        //en caso de mas de un operador en display,
+        //resulve numeros actuales
+        primerFloat = parseFloat(primerNumero);
+        segundoFloat = parseFloat(segundoNumero);
+        operate(primerFloat, operador, segundoFloat);
+        display.textContent = result;
+        primerNumero = result;
+        segundoNumero = "";
+        operador = "";
+        punto.disabled = false;
+        display.textContent = display.textContent + this.innerHTML;
+        operador = operador + this.innerHTML; 
+        displayValue = display.textContent
+        };
     }}};
 
+//funcion para redondear resultados
+function roundToTwo(num) {    
+    return +(Math.round(num + "e+2")  + "e-2");
+}
+//funciones para operar en display
 function add() {
     let sum = Array.from(arguments).reduce(function(a, b) {
         return a + b;
     })
     let resulta = sum;
+    resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
 function substract() {
@@ -77,6 +73,7 @@ function substract() {
         return a - b;
     })
     let resulta = rest
+    resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
 function multiply() {
@@ -84,6 +81,7 @@ function multiply() {
         return a * b;
     })
     let resulta = multiple
+    resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
 function divide() {
@@ -91,23 +89,24 @@ function divide() {
         return a / b;
     })
     let resulta = divided
+    resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
-
+// funcion para resolver segun operador
 function operate(numbera, operator, numberb) {
-    if (operator === "+" ) {
+    if(operator === "+" ) {
         add(numbera, numberb);
-    } else if (operator === "-" ) {
+    }else if(operator === "-" ) {
         substract(numbera, numberb);
-    } else if (operator === "x") {
+    }else if(operator === "x") {
         multiply(numbera, numberb);
-    } else if (operator ===  "÷") {
+    }else if(operator ===  "÷") {
         divide(numbera, numberb);
     }
 }
-
+//funcionalidad boton clear
 clear.addEventListener('click', () => {
-    display.value = "";
+    display.textContent = "";
     displayValue = "";
     operador = "";
     primerNumero = "";
@@ -123,23 +122,21 @@ clear.addEventListener('click', () => {
         operatorButton[i].disabled = false;
 };
 });
-
+//functionalidad boton resultado
 resultado.addEventListener('click', () => {
-    nan()
     primerFloat = parseFloat(primerNumero);
     segundoFloat = parseFloat(segundoNumero);
     operate(primerFloat, operador, segundoFloat);
-    display.value = result;
+    display.textContent = result;
     primerNumero = result.toString();
     segundoNumero = "";
     operador = "";
     punto.disabled = false;
 });
-
-
+//funcionalidad boton punto, 
+//para que solo pueda escribir uno por numero a operar
 punto.onclick = function () {
-    nan()
-    display.value = display.value + this.innerHTML;
+    display.textContent = display.textContent + this.innerHTML;
     if (operador === "") {
         primerNumero = primerNumero + this.innerHTML; 
         } else {
@@ -147,9 +144,9 @@ punto.onclick = function () {
         }
     punto.disabled = true;
 }
-
+//funcionalidad backspace
 deleteador.addEventListener('click', () => {
-    let displayABorrar = display.value.slice(display.value.length - 1);
+    let displayABorrar = display.textContent.slice(display.textContent.length - 1);
     if (displayABorrar === operador.slice(operador.length - 1)) {
         operador = operador.slice(0, -1);
     }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
@@ -158,5 +155,7 @@ deleteador.addEventListener('click', () => {
     }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
         segundoNumero = segundoNumero.slice(0, -1);
         result = result.slice(0, -1);
-    }display.value = display.value.slice(0, -1);
+    }display.textContent = display.textContent.slice(0, -1);
+    punto.disabled = false;
+    resultado.disabled = false;
 });
