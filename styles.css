@@ -53,7 +53,7 @@ body {
     grid-gap: 15px;
 }
 .is-clear { 
-    grid-column: span 3;
+    grid-column: span 2;
     background: #1c4b9c;
     border: 1px solid #111;
     padding: 20px;
