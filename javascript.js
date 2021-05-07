@@ -9,7 +9,7 @@ let displayValue = "";
 let primerNumero = "";
 let primerFloat = 0;
 let segundoFloat = 0;
-let result = 0;
+let result = "";
 let segundoNumero = "";
 let operador = "";
 
@@ -69,25 +69,29 @@ function add() {
     let sum = Array.from(arguments).reduce(function(a, b) {
         return a + b;
     })
-    result = sum;
+    let resulta = sum;
+    result = resulta.toString()
 }
 function substract() {
     let rest = Array.from(arguments).reduce(function(a, b) {
         return a - b;
     })
-    result = rest
+    let resulta = rest
+    result = resulta.toString()
 }
 function multiply() {
     let multiple = Array.from(arguments).reduce(function(a, b) {
         return a * b;
     })
-    result = multiple
+    let resulta = multiple
+    result = resulta.toString()
 }
 function divide() {
     let divided = Array.from(arguments).reduce(function(a, b) {
         return a / b;
     })
-    result = divided
+    let resulta = divided
+    result = resulta.toString()
 }
 
 function operate(numbera, operator, numberb) {
@@ -126,7 +130,7 @@ resultado.addEventListener('click', () => {
     segundoFloat = parseFloat(segundoNumero);
     operate(primerFloat, operador, segundoFloat);
     display.value = result;
-    primerNumero = result;
+    primerNumero = result.toString();
     segundoNumero = "";
     operador = "";
     punto.disabled = false;
@@ -150,7 +154,9 @@ deleteador.addEventListener('click', () => {
         operador = operador.slice(0, -1);
     }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
         primerNumero = primerNumero.slice(0, -1);
+        result = result.slice(0, -1);
     }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
         segundoNumero = segundoNumero.slice(0, -1);
+        result = result.slice(0, -1);
     }display.value = display.value.slice(0, -1);
 });
