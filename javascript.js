@@ -29,10 +29,24 @@ for (var i = 0; i < numberButton.length; i++) {
 function operadores() {
     for (var i = 0; i < operatorButton.length; i++) {
         operatorButton[i].onclick = function () {
+            if (operador === "") {
          display.value = display.value + this.innerHTML;
          operador = operador + this.innerHTML; 
          displayValue = display.value
          punto.disabled = false;
+            } else {
+            primerFloat = parseFloat(primerNumero);
+            segundoFloat = parseFloat(segundoNumero);
+            operate(primerFloat, operador, segundoFloat);
+            display.value = result;
+            primerNumero = result;
+            segundoNumero = "";
+            operador = "";
+            punto.disabled = false;
+            display.value = display.value + this.innerHTML;
+            operador = operador + this.innerHTML; 
+            displayValue = display.value
+            }
     }}};
 
 function add() {
@@ -85,7 +99,7 @@ resultado.addEventListener('click', () => {
     primerFloat = parseFloat(primerNumero);
     segundoFloat = parseFloat(segundoNumero);
     operate(primerFloat, operador, segundoFloat);
-    display.value = result;
+    primerNumero = result;
     punto.disabled = false;
 });
 
