@@ -61,35 +61,27 @@ function roundToTwo(num) {
     return +(Math.round(num + "e+2")  + "e-2");
 }
 //funciones para operar en display
-function add() {
-    let sum = Array.from(arguments).reduce(function(a, b) {
-        return a + b;
-    })
+function add(a, b) {
+    let sum =  a + b;
     let resulta = sum;
     resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
-function substract() {
-    let rest = Array.from(arguments).reduce(function(a, b) {
-        return a - b;
-    })
+function substract(a, b) {
+    let rest = a - b;
     let resulta = rest
     resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
-function multiply() {
-    let multiple = Array.from(arguments).reduce(function(a, b) {
-        return a * b;
-    })
-    let resulta = multiple
+function multiply(a, b) {
+    let multiple = a * b;
+    let resulta = multiple;
     resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
-function divide() {
-    let divided = Array.from(arguments).reduce(function(a, b) {
-        return a / b;
-    })
-    let resulta = divided
+function divide(a, b) {
+    let divided = a / b;
+    let resulta = divided;
     resulta = roundToTwo(resulta);
     result = resulta.toString()
 }
