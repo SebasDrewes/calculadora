@@ -43,6 +43,7 @@ body {
     color: #333;
     margin: 10px;
     text-align: right;
+    word-wrap: break-word;
     font-size: 40px;
     border-radius: 0;
     background-color: rgb(235, 231, 231);
