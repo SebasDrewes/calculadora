@@ -5,7 +5,7 @@ let numberButton= document.querySelectorAll(".number-button");
 let operatorButton= document.querySelectorAll(".operator-button");
 let resultado = document.querySelector(".is-equals");
 let punto = document.querySelector(".punto");
-let deleteador = document.querySelector(".delete");
+let backSpace = document.querySelector(".delete");
 //definicion de variables globales
 let displayValue = "";
 let primerNumero = "";
@@ -44,6 +44,7 @@ function operadores() {
         primerFloat = parseFloat(primerNumero);
         segundoFloat = parseFloat(segundoNumero);
         operate(primerFloat, operador, segundoFloat);
+        if (!isNaN(result)){
         display.textContent = result;
         primerNumero = result;
         segundoNumero = "";
@@ -52,7 +53,7 @@ function operadores() {
         display.textContent = display.textContent + this.innerHTML;
         operador = operador + this.innerHTML; 
         displayValue = display.textContent
-        };
+            }};
     }}};
 
 //funcion para redondear resultados
@@ -127,12 +128,13 @@ resultado.addEventListener('click', () => {
     primerFloat = parseFloat(primerNumero);
     segundoFloat = parseFloat(segundoNumero);
     operate(primerFloat, operador, segundoFloat);
+    if (!isNaN(result)){
     display.textContent = result;
     primerNumero = result.toString();
     segundoNumero = "";
     operador = "";
     punto.disabled = false;
-});
+}});
 //funcionalidad boton punto, 
 //para que solo pueda escribir uno por numero a operar
 punto.onclick = function () {
@@ -145,7 +147,7 @@ punto.onclick = function () {
     punto.disabled = true;
 }
 //funcionalidad backspace
-deleteador.addEventListener('click', () => {
+backSpace.addEventListener('click', () => {
     let displayABorrar = display.textContent.slice(display.textContent.length - 1);
     if (displayABorrar === operador.slice(operador.length - 1)) {
         operador = operador.slice(0, -1);
