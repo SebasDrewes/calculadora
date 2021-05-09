@@ -230,28 +230,10 @@ function operadorBoton() {
     
 switch (event.key) {
     case "Escape":
-        display.textContent = "";
-        operador = "";
-        primerNumero = "";
-        primerFloat = "";
-        segundoFloat = "";
-        segundoNumero = "";
-        result = "";
-        punto.disabled = false;
+        clear.click();
     break;
     case "Backspace":
-        let displayABorrar = display.textContent.slice(display.textContent.length - 1);
-    if (displayABorrar === operador.slice(operador.length - 1)) {
-        operador = operador.slice(0, -1);
-    }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
-        primerNumero = primerNumero.slice(0, -1);
-        result = result.slice(0, -1);
-    }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
-        segundoNumero = segundoNumero.slice(0, -1);
-        result = result.slice(0, -1);
-    }
-    display.textContent = display.textContent.slice(0, -1);
-    punto.disabled = false;
+        backSpace.click();
     break;
     case "0":
         numberosBoton();
@@ -296,25 +278,9 @@ switch (event.key) {
         operadorDivision();
     break;
     case "Enter":
-        primerFloat = parseFloat(primerNumero);
-        segundoFloat = parseFloat(segundoNumero);
-        operate(primerFloat, operador, segundoFloat);
-        //en caso de resultado = NaN, no lo muestra.
-        if (!isNaN(result)){
-        display.textContent = result;
-        primerNumero = result.toString();
-        segundoNumero = "";
-        operador = "";
-        punto.disabled = false;
-        }
+        resultado.click();
     break;
     case ".":
-        display.textContent = display.textContent + event.key;
-        if (operador === "") {
-            primerNumero = primerNumero + event.key; 
-        } else {
-            segundoNumero = segundoNumero + event.key;
-        }
-        punto.disabled = true;
+        punto.click();
     break;
 }});
