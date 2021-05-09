@@ -5,12 +5,6 @@
 body {
     background-color: rgb(235, 231, 231);
     font-family:'Space Mono';
-    margin: auto;
-}
-#titulo {
-    font-size: 20px;
-    text-align: center;
-    margin: auto;
 }
 .calculator {
     margin: 0 auto;
@@ -95,7 +89,7 @@ body {
     font-family: 'Space Mono';
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
+    grid-gap: 6px;
 }
 .clear { 
     grid-column: span 2;

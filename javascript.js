@@ -150,43 +150,171 @@ backSpace.addEventListener('click', () => {
 });
 
 
-window.addEventListener("keydown", function (event) {
-    if (event.defaultPrevented) {
-      return; // Do nothing if the event was already processed
+///////funcionalidad teclado///////
+
+document.addEventListener("keydown", function(event) {
+    
+function numberosBoton() {
+    display.textContent  = display.textContent  + event.key;
+    if (operador === "") {
+        primerNumero = primerNumero + event.key; 
+    } else {
+        segundoNumero = segundoNumero + event.key;
     }
-  
-    switch (event.key) {
-      case "1": // IE/Edge specific value
-        display.textContent  = display.textContent  + this.innerHTML;
+}
+function operadorBoton() {
+    if (operador === "") {
+        display.textContent = display.textContent + event.key;
+        operador = operador + event.key; 
+        punto.disabled = false;
+    } else {
+    //en caso de mas de un operador en display,
+    //resulve numeros actuales
+    primerFloat = parseFloat(primerNumero);
+    segundoFloat = parseFloat(segundoNumero);
+    operate(primerFloat, operador, segundoFloat);
+    //en caso de resultado = NaN, no lo muestra.
+    if (!isNaN(result)){
+    display.textContent = result;
+    primerNumero = result;
+    segundoNumero = "";
+    operador = "";
+    punto.disabled = false;
+    display.textContent = display.textContent + event.key;
+    operador = operador + event.key; 
+    }}};
+
+    function operadorMultiplicacion() {
         if (operador === "") {
-            primerNumero = primerNumero + this.innerHTML; 
+            display.textContent = display.textContent + "x";
+            operador = operador + "x"; 
+            punto.disabled = false;
         } else {
-            segundoNumero = segundoNumero + this.innerHTML;
-        }
-        break;
-      case "Up": // IE/Edge specific value
-      case "ArrowUp":
-        // Do something for "up arrow" key press.
-        break;
-      case "Left": // IE/Edge specific value
-      case "ArrowLeft":
-        // Do something for "left arrow" key press.
-        break;
-      case "Right": // IE/Edge specific value
-      case "ArrowRight":
-        // Do something for "right arrow" key press.
-        break;
-      case "Enter":
-        // Do something for "enter" or "return" key press.
-        break;
-      case "Esc": // IE/Edge specific value
-      case "Escape":
-        // Do something for "esc" key press.
-        break;
-      default:
-        return; // Quit when this doesn't handle the key event.
+        //en caso de mas de un operador en display,
+        //resulve numeros actuales
+        primerFloat = parseFloat(primerNumero);
+        segundoFloat = parseFloat(segundoNumero);
+        operate(primerFloat, operador, segundoFloat);
+        //en caso de resultado = NaN, no lo muestra.
+        if (!isNaN(result)){
+        display.textContent = result;
+        primerNumero = result;
+        segundoNumero = "";
+        operador = "";
+        punto.disabled = false;
+        display.textContent = display.textContent + "x";
+        operador = operador + "x"; 
+        }}};
+    
+    function operadorDivision() {
+        if (operador === "") {
+            display.textContent = display.textContent + "÷";
+            operador = operador + "÷"; 
+            punto.disabled = false;
+        } else {
+        //en caso de mas de un operador en display,
+        //resulve numeros actuales
+        primerFloat = parseFloat(primerNumero);
+        segundoFloat = parseFloat(segundoNumero);
+        operate(primerFloat, operador, segundoFloat);
+        //en caso de resultado = NaN, no lo muestra.
+        if (!isNaN(result)){
+        display.textContent = result;
+        primerNumero = result;
+        segundoNumero = "";
+        operador = "";
+        punto.disabled = false;
+        display.textContent = display.textContent + "÷";
+        operador = operador + "÷"; 
+        }}};
+    
+switch (event.key) {
+    case "Escape":
+        display.textContent = "";
+        operador = "";
+        primerNumero = "";
+        primerFloat = "";
+        segundoFloat = "";
+        segundoNumero = "";
+        result = "";
+        punto.disabled = false;
+    break;
+    case "Backspace":
+        let displayABorrar = display.textContent.slice(display.textContent.length - 1);
+    if (displayABorrar === operador.slice(operador.length - 1)) {
+        operador = operador.slice(0, -1);
+    }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
+        primerNumero = primerNumero.slice(0, -1);
+        result = result.slice(0, -1);
+    }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
+        segundoNumero = segundoNumero.slice(0, -1);
+        result = result.slice(0, -1);
     }
-  
-    // Cancel the default action to avoid it being handled twice
-    event.preventDefault();
-  }, true);
+    display.textContent = display.textContent.slice(0, -1);
+    punto.disabled = false;
+    break;
+    case "0":
+        numberosBoton();
+    break;
+    case "1":
+        numberosBoton();
+    break;
+    case "2":
+        numberosBoton();
+    break;
+    case "3":
+        numberosBoton();
+    break;
+    case "4":
+        numberosBoton();
+    break;
+    case "5":
+        numberosBoton();
+    break;
+    case "6":
+        numberosBoton();
+    break;
+    case "7":
+        numberosBoton();
+    break;
+    case "8":
+        numberosBoton();
+    break;
+    case "9":
+        numberosBoton();
+    break;
+    case "+":
+        operadorBoton();
+    break;
+    case "-":
+        operadorBoton();
+    break;
+    case "*":
+        operadorMultiplicacion();
+    break;
+    case "/":
+        operadorDivision();
+    break;
+    case "Enter":
+        primerFloat = parseFloat(primerNumero);
+        segundoFloat = parseFloat(segundoNumero);
+        operate(primerFloat, operador, segundoFloat);
+        //en caso de resultado = NaN, no lo muestra.
+        if (!isNaN(result)){
+        display.textContent = result;
+        primerNumero = result.toString();
+        segundoNumero = "";
+        operador = "";
+        punto.disabled = false;
+        }
+    break;
+    case ".":
+        display.textContent = display.textContent + event.key;
+        if (operador === "") {
+            primerNumero = primerNumero + event.key; 
+        } else {
+            segundoNumero = segundoNumero + event.key;
+        }
+        punto.disabled = true;
+    break;
+}});
