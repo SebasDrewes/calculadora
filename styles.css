@@ -20,8 +20,36 @@ body {
     background-color:rgb(187, 187, 187);
     box-shadow: 3px 2px 2px rgb(110, 110, 110);
 }
-.calc-button {
+.number-button {
+    color: black;
+    background-color: rgb(224, 223, 223);
+    border: 1px solid #111;
+    padding: 20px;
+    font-family: 'Space Mono';
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.number-button:active {
+    background-color:rgb(190, 190, 190)
+}
+.operator-button {
     background: rgba(0, 0, 0, 0.5);
+    color: #EEE;
+    border: 1px solid #111;
+    padding: 20px;
+    font-family: 'Space Mono';
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.operator-button:active {
+    background-color:#949496;
+}
+.delete {
+    background: #773434;
     border: 1px solid #111;
     padding: 20px;
     font-family: 'Space Mono';
@@ -31,8 +59,22 @@ body {
     cursor: pointer;
 
 }
-.calc-button:active {
-    background-color:#949496;
+.delete:active {
+    background: #9c4343;
+}
+.punto {
+    color: black;
+    background-color: rgb(224, 223, 223);
+    border: 1px solid #111;
+    padding: 20px;
+    font-family: 'Space Mono';
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.punto:active {
+    background-color:rgb(190, 190, 190)
 }
 #display   {
     font-family: 'Space Mono';
@@ -55,9 +97,9 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 15px;
 }
-.is-clear { 
+.clear { 
     grid-column: span 2;
-    background: #1c4b9c;
+    background: #773434;
     border: 1px solid #111;
     padding: 20px;
     color: white;
@@ -66,33 +108,33 @@ body {
     cursor: pointer;
     font-family: 'Space Mono';
 }
-.is-clear:active {
-    background-color:#037ecf;
+.clear:active {
+    background: #9c4343;
 }
-.is-zero {  
+.zero {  
     font-family: 'Space Mono';
     grid-column: span 2;
     border: 1px solid #111;
     padding: 20px;
     color: black;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(224, 223, 223);
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
 }
-.is-zero:active {
+.zero:active {
     background-color:rgb(190, 190, 190)
 }
-.is-equals {
-    background: #07461c;
+.equals {
+    background: rgba(0, 0, 0, 0.5);
+    color: #EEE;
     font-family: 'Space Mono';
-    color: white;
     border: 1px solid #111;
     padding: 20px;
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
 }
-.is-equals:active {
-    background-color:#009c5b;
+.equals:active {
+    background-color:#949496;
 }
