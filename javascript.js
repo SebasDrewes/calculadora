@@ -223,7 +223,7 @@ function operadorBoton() {
     
 switch (event.key) {
     case "Escape":
-        clear.click();
+         window.location.reload();
     break;
     case "Backspace":
         backSpace.click();
