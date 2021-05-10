@@ -99,14 +99,7 @@ function operate(numbera, operator, numberb) {
 }
 //funcionalidad boton clear
 clear.addEventListener('click', () => {
-    display.textContent = "";
-    operador = "";
-    primerNumero = "";
-    primerFloat = "";
-    segundoFloat = "";
-    segundoNumero = "";
-    result = "";
-    punto.disabled = false;
+    window.location.reload();
 });
 //functionalidad boton resultado
 resultado.addEventListener('click', () => {
@@ -140,10 +133,10 @@ backSpace.addEventListener('click', () => {
         operador = operador.slice(0, -1);
     }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
         primerNumero = primerNumero.slice(0, -1);
-        result = result.slice(0, -1);
+        //result = result.slice(0, -1);
     }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
         segundoNumero = segundoNumero.slice(0, -1);
-        result = result.slice(0, -1);
+        //result = result.slice(0, -1);
     }
     display.textContent = display.textContent.slice(0, -1);
     punto.disabled = false;
