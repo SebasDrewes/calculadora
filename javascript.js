@@ -1,11 +1,11 @@
 //definicion de elementos DOM
-let display = document.querySelector("#display");
-let numberButton= document.querySelectorAll(".number-button");
-let operatorButton= document.querySelectorAll(".operator-button");
-let punto = document.querySelector(".punto");
-let clear = document.querySelector(".clear");
-let backSpace = document.querySelector(".delete");
-let resultado = document.querySelector(".equals");
+const display = document.querySelector("#display");
+const numberButton= document.querySelectorAll(".number-button");
+const operatorButton= document.querySelectorAll(".operator-button");
+const punto = document.querySelector(".punto");
+const clear = document.querySelector(".clear");
+const backSpace = document.querySelector(".delete");
+const resultado = document.querySelector(".equals");
 //definicion de variables globales
 let primerNumero = "";
 let segundoNumero = "";
@@ -55,7 +55,7 @@ function operadores() {
 
 //funcion para redondear resultados
 //maximo 9 decimales
-function roundToTwo(num) {    
+function roundToNine(num) {    
     return + (Math.round(num + "e+9")  + "e-9");
 }
 //funciones para operar en display
@@ -63,26 +63,26 @@ function add(a, b) {
     let sum =  a + b;
     let resulta = sum;
     //el resultado se redondea 
-    resulta = roundToTwo(resulta);
+    resulta = roundToNine(resulta);
     //se pasa a string para que backSpace funcione correctamente
     result = resulta.toString()
 }
 function substract(a, b) {
     let rest = a - b;
     let resulta = rest
-    resulta = roundToTwo(resulta);
+    resulta = roundToNine(resulta);
     result = resulta.toString()
 }
 function multiply(a, b) {
     let multiple = a * b;
     let resulta = multiple;
-    resulta = roundToTwo(resulta);
+    resulta = roundToNine(resulta);
     result = resulta.toString()
 }
 function divide(a, b) {
     let divided = a / b;
     let resulta = divided;
-    resulta = roundToTwo(resulta);
+    resulta = roundToNine(resulta);
     result = resulta.toString()
 }
 //funcion para resolver segun operador
@@ -235,6 +235,12 @@ switch (event.key) {
     case "Backspace":
         backSpace.click();
     break;
+    case "Enter":
+        resultado.click();
+    break;
+    case ".":
+        punto.click();
+    break;
     case "0":
         numberosBoton();
     break;
@@ -276,11 +282,5 @@ switch (event.key) {
     break;
     case "/":
         operadorDivision();
-    break;
-    case "Enter":
-        resultado.click();
-    break;
-    case ".":
-        punto.click();
     break;
 }});
