@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
 * {
     box-sizing: border-box;
 }
 body {
     background-color: rgb(235, 231, 231);
-    font-family:'Space Mono';
+    font-family:'Orbitron';
 }
 .calculator {
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 350px;
     border: 2px solid #111;
     border-radius: 5px;
-    background-color:rgb(187, 187, 187);
+    background-color:rgb(89, 83, 94);
     box-shadow: 3px 2px 2px rgb(110, 110, 110);
 }
 .number-button {
-    color: black;
-    background-color: rgb(224, 223, 223);
+    color: white;
+    background-color: rgb(139, 139, 139);
     border: 1px solid #111;
     padding: 20px;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
@@ -33,7 +33,7 @@ body {
     color: #EEE;
     border: 1px solid #111;
     padding: 20px;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
@@ -46,7 +46,7 @@ body {
     background: #773434;
     border: 1px solid #111;
     padding: 20px;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     color: #EEE;
     border-radius: 5px;
     font-size: 22px;
@@ -57,11 +57,11 @@ body {
     background: #9c4343;
 }
 .punto {
-    color: black;
-    background-color: rgb(224, 223, 223);
+    color: white;
+    background-color: rgb(139, 139, 139);
     border: 1px solid #111;
     padding: 20px;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
@@ -71,7 +71,7 @@ body {
     background-color:rgb(190, 190, 190)
 }
 #display   {
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     padding: 5%;
     width: 95%;
     min-height: 17vh;
@@ -82,11 +82,11 @@ body {
     word-wrap: break-word;
     font-size: 40px;
     border-radius: 0;
-    background-color: rgb(235, 231, 231);
+    background-color: rgb(108, 139, 113);
   }
 .calculator-buttons {
     padding: 15px;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 6px;
@@ -100,18 +100,18 @@ body {
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
 }
 .clear:active {
     background: #9c4343;
 }
 .zero {  
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     grid-column: span 2;
     border: 1px solid #111;
     padding: 20px;
-    color: black;
-    background-color: rgb(224, 223, 223);
+    color: white;
+    background-color: rgb(139, 139, 139);
     border-radius: 5px;
     font-size: 22px;
     cursor: pointer;
@@ -122,7 +122,7 @@ body {
 .equals {
     background: rgba(0, 0, 0, 0.5);
     color: #EEE;
-    font-family: 'Space Mono';
+    font-family: 'Orbitron';
     border: 1px solid #111;
     padding: 20px;
     border-radius: 5px;
