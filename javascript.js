@@ -133,13 +133,16 @@ backSpace.addEventListener('click', () => {
         operador = operador.slice(0, -1);
     }else if(displayABorrar === primerNumero.slice(primerNumero.length - 1)) {
         primerNumero = primerNumero.slice(0, -1);
-        //result = result.slice(0, -1);
+        if (displayABorrar === ".") {
+            punto.disabled = false;
+        }
     }else if(displayABorrar === segundoNumero.slice(segundoNumero.length - 1)) {
         segundoNumero = segundoNumero.slice(0, -1);
-        //result = result.slice(0, -1);
+        if (displayABorrar === ".") {
+            punto.disabled = false;
+        }
     }
     display.textContent = display.textContent.slice(0, -1);
-    punto.disabled = false;
 });
 
 
@@ -223,7 +226,8 @@ function operadorBoton() {
     
 switch (event.key) {
     case "Escape":
-        clear.click();
+        event.preventDefault()
+        window.location.reload();
     break;
     case "Backspace":
         backSpace.click();
