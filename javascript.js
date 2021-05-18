@@ -232,11 +232,7 @@ switch (event.key) {
     case "Backspace":
         backSpace.click();
     break;
-<<<<<<< HEAD
-    case "Enter":        
-=======
     case "Enter":
->>>>>>> df125d44c9d9933c9c07ec28fdbbfcff1db60339
         event.preventDefault();
         resultado.click();
     break;
