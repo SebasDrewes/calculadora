@@ -226,13 +226,14 @@ function operadorBoton() {
     
 switch (event.key) {
     case "Escape":
-        event.preventDefault()
+        event.preventDefault();
         window.location.reload();
     break;
     case "Backspace":
         backSpace.click();
     break;
     case "Enter":
+        event.preventDefault();
         resultado.click();
     break;
     case ".":
